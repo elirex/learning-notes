@@ -1,6 +1,0 @@
-[submodule "algorithm"]
-	path = algorithm
-	url = https://github.com/elirex/algorithm.git
-[submodule "design-patterns"]
-	path = design-patterns
-	url = https://github.com/elirex/design-patterns.git
