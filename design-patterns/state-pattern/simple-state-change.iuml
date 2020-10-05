@@ -1,0 +1,15 @@
+@startuml
+
+
+() "State1" as Interf1
+() "State2" as Interf2
+() "State3" as Interf3
+() "State4" as Interf4
+
+Interf1 -> Interf2
+Interf2 -> Interf3
+Interf3 -> Interf4
+Interf4 -> Interf1
+
+
+@enduml

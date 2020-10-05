@@ -1,0 +1,29 @@
+@startuml
+
+Subject <|.. RealSubject
+
+InvocationHandle <|.. InvocationHandleImpl
+
+DynamcProxy ..> InvocationHandle
+
+InvocationHandle ..> Subject
+
+interface Subject {
+	+request()
+}
+
+class RealSubject
+
+class DynamcProxy {
+	+{static} <T> newProxyInstance(loader: ClassLoader, interfaces: Class<*>[], hanlder: InvocationHandle): T
+}
+
+interface InvocationHandle {
+	+invoke(proxy: Object, method: Method, args: Object[]): Object
+}
+
+class InvocationHandleImpl {
+	-target: Object
+}
+
+@enduml

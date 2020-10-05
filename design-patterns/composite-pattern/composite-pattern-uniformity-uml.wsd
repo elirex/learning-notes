@@ -1,0 +1,18 @@
+@startuml
+
+Component --o Composite
+Component <|-- Composite
+Component <|-- Leaf
+
+
+abstract class Component {
+	+add(child: Component)
+	+remove(child: Component)
+	+getChild(): Component
+}
+
+class Composite
+class Leaf
+
+
+@enduml

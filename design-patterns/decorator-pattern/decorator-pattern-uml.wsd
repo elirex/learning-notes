@@ -1,0 +1,26 @@
+@startuml
+
+Component <|.. ConcreateComponent
+Component <|.. Decorator
+Component <--o Decorator
+
+Decorator <|-- ConcreateDecoratorA
+Decorator <|-- ConcreateDecoratorB
+
+
+interface Component {
+	+operation()
+}
+
+class ConcreateComponent 
+
+abstract class Decorator {
+	-component: Component
+	+construct(component: Component)
+}
+
+class ConcreateDecoratorA
+
+class ConcreateDecoratorB
+
+@enduml

@@ -1,0 +1,13 @@
+@startuml
+
+ObserverA --> Subject: registerObserver
+ObserverB --> Subject: registerObserver
+
+Subject --> Subject: notifyObservers
+activate Subject
+Subject --> ObserverA: update
+Subject --> ObserverB: update
+deactivate Subject
+
+
+@enduml

@@ -1,0 +1,43 @@
+@startuml
+
+AbstractFactory <|-- Factory1
+AbstractFactory <|-- Factory2
+
+AbstractProductA <|-- ProductA1
+AbstractProductA <|-- ProductA2
+
+AbstractProductB <|-- ProductB1
+AbstractProductB <|-- ProductB2
+
+Factory1 ...> ProductA1
+Factory1 ...> ProductB1
+
+Factory2 ...> ProductA2
+Factory2 ...> ProductB2
+
+
+abstract class AbstractFactory {
+	+{abstract} createProductA(): AbstractProductA
+	+{abstract} createProductB(): AbstractProductB
+}
+
+class Factory1
+class Factory2
+
+abstract class AbstractProductA {
+	+function()
+	+{abstract} method()
+}
+
+abstract class AbstractProductB {
+	+function()
+	+{abstract} method()
+}
+
+class ProductA1
+class ProductA2
+
+class ProductB1
+class ProductB2
+
+@enduml

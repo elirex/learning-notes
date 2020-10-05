@@ -1,0 +1,18 @@
+@startuml
+
+Target <|.. Adapter
+Adapter --> Adaptee
+
+interface Target {
+	+operation()
+}
+
+class Adapter {
+	+setAdaptee(adaptee: Adaptee)
+}
+
+class Adaptee {
+	+specificOperation()
+}
+
+@enduml

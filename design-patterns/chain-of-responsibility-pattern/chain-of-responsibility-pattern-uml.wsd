@@ -1,0 +1,16 @@
+@startuml
+
+Handler <|-- HanderA
+Handler <|-- HanderB
+
+Handler <-- Handler
+
+abstract Handler {
+	handleRequest()
+}
+
+class HanderA
+
+class HanderB
+
+@enduml

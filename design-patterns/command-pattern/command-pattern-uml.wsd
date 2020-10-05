@@ -1,0 +1,25 @@
+@startuml
+
+Command <|-- CommandA
+Command <|-- CommandB
+
+Invoker o--> Command
+
+CommandA --> Receiver
+CommandB --> Receiver
+
+class Receiver {
+	+action()
+}
+
+class Invoker
+
+
+abstract class Command {
+	+{abstract} execute()
+}
+
+class CommandA
+class CommandB
+
+@enduml

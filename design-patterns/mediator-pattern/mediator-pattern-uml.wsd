@@ -1,0 +1,35 @@
+@startuml
+
+Mediator <|-- ConcreteMediator
+Storage <|-- StorageA
+Storage <|-- StorageB
+
+Mediator <-- Storage
+StorageA <-- ConcreteMediator
+StorageB <-- ConcreteMediator
+
+abstract class Mediator {
+	~storageA: StorageA
+	~storageB: StorageB
+	+construct()
+	+abstract action()
+}
+
+class ConcreteMediator
+
+abstract class Storage {
+	~mediator: Mediator
+	+construct(mediator: Mediator)
+}
+
+class StorageA {
+	+selfMethod()
+	+execute()
+}
+
+class StorageB {
+	+selfMethod()
+	+execute()
+}
+
+@enduml

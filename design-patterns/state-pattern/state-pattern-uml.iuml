@@ -1,0 +1,25 @@
+@startuml
+
+State <|--- ConcreteState1
+State <|--- ConcreteState2
+State <---o Context
+
+
+class Context {
+	-currentState: State
+	+getCurrentState(): State
+	+setCurrentState(state: State)
+	+handle()
+}
+
+abstract class State {
+	-context: Context
+	+setContext(context: Context)
+	+{abstract}handle()
+}
+
+class ConcreteState1
+class ConcreteState2
+
+
+@enduml

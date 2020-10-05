@@ -1,0 +1,18 @@
+@startuml
+
+Facade ..> SubSystem.SystemA
+Facade ..> SubSystem.SystemB
+Facade ..> SubSystem.SystemC
+
+
+class Facade {
+	+doSomething()
+}
+
+namespace SubSystem {
+	class SystemA 
+	class SystemB
+	class SystemC
+}
+
+@enduml

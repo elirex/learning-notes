@@ -1,0 +1,30 @@
+@startuml state_pattern
+
+State <|-- ConcreteState1
+State <|-- ConcreteState2
+
+Context o--> State
+
+abstract class State {
+
+	#context: Context
+
+	+setContext(context: Context)
+	+{abstract} handel1()
+	+{abstract} handel2()
+
+}
+
+class ConcreteState1
+class ConcreteState2
+
+class Context {
+	-currentState: State
+
+	+getCurrentState(): State
+	+setCurrentState(state: State)
+	+handle1()
+	+handel2()
+}
+
+@enduml

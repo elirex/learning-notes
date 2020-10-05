@@ -1,0 +1,20 @@
+@startuml
+
+Builder <|-- ConcreteBuilder
+ConcreteBuilder --> Proudct
+Director o-->Builder
+
+abstract class Builder {
+	+setPart()
+	+buildProduct()
+}
+
+class ConcreteBuilder 
+
+class Proudct
+
+class Director {
+	-builder: Builder
+}
+
+@endunl

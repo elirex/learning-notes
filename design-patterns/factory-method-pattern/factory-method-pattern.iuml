@@ -1,0 +1,24 @@
+@startuml
+
+IProduct <|.. Product
+Creator <|-- ConcreteCreator
+IProduct <-- Creator
+
+interface IProduct {
+
+	+functionA()
+	+functionB()
+
+}
+
+class Product
+
+
+abstract class Creator {
+	+{abstract} factoryMethod(c: Class<T>): <T extends IProduct> 
+}
+
+class ConcreteCreator
+
+
+@enduml
