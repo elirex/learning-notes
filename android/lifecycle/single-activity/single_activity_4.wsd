@@ -1,0 +1,37 @@
+@startuml
+
+skinparam dip 100
+
+title Single Activity - App is paused by the system
+
+actor User
+
+User -> Activity: App started
+activate Activity
+
+Activity -> Activity: call onCreate(null)
+activate Activity
+deactivate Activity
+
+Activity -> Activity: call onStart()
+activate Activity
+deactivate Activity
+
+Activity -> Activity: call onResume()
+activate Activity
+deactivate Activity
+
+Activity -> Activity: Multi-window started
+
+Activity -> Activity: call onPause()
+activate Activity
+deactivate Activity
+
+Activity -> Activity: Focus comes back to App
+
+Activity -> Activity: call onResume()
+activate Activity
+deactivate Activity
+deactivate Activity
+
+@enduml

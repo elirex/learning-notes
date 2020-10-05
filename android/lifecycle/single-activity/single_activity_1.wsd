@@ -1,0 +1,60 @@
+@startuml
+
+skinparam dpi 100
+
+title Single Activity - App is started, finished and restarted
+
+actor User
+
+User -> Activity: App started
+activate Activity
+
+Activity -> Activity: call onCreate(null)
+activate Activity
+deactivate Activity
+
+Activity -> Activity: call onStart()
+activate Activity
+deactivate Activity
+
+Activity -> Activity: call onResume()
+activate Activity
+deactivate Activity
+
+User -> Activity: Back pressed
+
+Activity -> Activity: call finish()
+activate Activity
+deactivate Activity
+
+Activity -> Activity: call onPause()
+activate Activity
+deactivate Activity
+
+Activity -> Activity: call onStop()
+activate Activity
+deactivate Activity
+
+Activity -> Activity: call onDestroy()
+activate Activity
+deactivate Activity
+deactivate Activity
+
+
+User -> Activity: App restarted
+activate Activity
+
+Activity -> Activity: call onCreate(null)
+activate Activity
+deactivate Activity
+
+Activity -> Activity: call onStart()
+activate Activity
+deactivate Activity
+
+Activity -> Activity: call onResume()
+activate Activity
+deactivate Activity
+deactivate Activity
+
+@enduml

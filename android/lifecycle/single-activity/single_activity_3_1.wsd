@@ -1,0 +1,63 @@
+@startuml
+
+skinparam dip 100
+
+title Single Activity - Configuration changes
+
+actor User
+
+User -> Activity: App started
+activate Activity
+
+Activity -> Activity: call onCreate(null)
+activate Activity
+deactivate Activity
+
+Activity -> Activity: call onStart()
+activate Activity
+deactivate Activity
+
+Activity -> Activity: call onResume()
+activate Activity
+deactivate Activity
+
+User -> Activity: Device rotated/Resize window
+
+Activity -> Activity: call onPause()
+activate Activity
+deactivate Activity
+
+Activity -> Activity: call onStop()
+activate Activity
+deactivate Activity
+
+Activity -> Activity: call onSaveInstanceState()
+activate Activity
+deactivate Activity
+
+Activity -> Activity: call onDestory()
+activate Activity
+deactivate Activity
+deactivate Activity
+
+Activity -> Activity
+activate Activity
+
+Activity -> Activity: call onCreate(null)
+activate Activity
+deactivate Activity
+
+Activity -> Activity: call onStart()
+activate Activity
+deactivate Activity
+
+Activity -> Activity: call onRestoreInstanceState()
+activate Activity
+deactivate Activity
+
+Activity -> Activity: call onResume()
+activate Activity
+deactivate Activity
+deactivate Activity
+
+@enduml

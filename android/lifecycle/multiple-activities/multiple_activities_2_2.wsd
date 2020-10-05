@@ -1,0 +1,85 @@
+@startuml
+
+skinparam dpi 100
+!pragma teoz true
+
+title Multiple Activities -Configuration changes
+
+actor User
+
+User -> ActivityA: ActivityA starting
+activate ActivityA
+
+ActivityA -> ActivityA: call onCreate(null)
+
+ActivityA -> ActivityA: call onStart()
+
+ActivityA -> ActivityA: call onResume()
+
+User -> ActivityA: ActivityA starts ActivityB
+
+ActivityA -> ActivityB: ActivityB starting
+activate ActivityB
+
+== Start Parallel groups ==
+
+ActivityA -> ActivityA: call onPause()
+& ActivityB -> ActivityB: call onCreate(null)
+
+ActivityB -> ActivityB: call onStart()
+& ActivityA -> ActivityA: call onStop()
+
+ActivityB -> ActivityB: call onResume()
+& ActivityA -> ActivityA: call onSaveInstanceState()
+
+== End Parallel groups ==
+
+User -> ActivityB: Device rotated
+
+ActivityB -> ActivityB: call onPause()
+
+ActivityB -> ActivityB: call onStop()
+
+ActivityB -> ActivityB: call onSaveInstanceState()
+
+ActivityB -> ActivityB: call onDestroy()
+deactivate ActivityB
+
+ActivityB -> ActivityB
+activate ActivityB
+
+ActivityB -> ActivityB: call onCreate(null)
+
+ActivityB -> ActivityB: call onStart()
+
+ActivityB -> ActivityB: call onRestoreInstanceState()
+
+ActivityB -> ActivityB: call onResume()
+
+User -> ActivityB: Back pressed
+
+== Start Parallel groups ==
+
+ActivityB -> ActivityB: call onPause()
+& ActivityA -> ActivityA: call onConfigurationChanged()
+
+ActivityB -> ActivityB: call onStop()
+& ActivityA -> ActivityA: call onRestart
+ActivityA -> ActivityA: call onStart()
+
+ActivityB -> ActivityB: call onDestroy()
+& ActivityA -> ActivityA: call onResume()
+deactivate ActivityB
+
+== End Parallel groups ==
+
+User -> ActivityA: Back pressed
+
+ActivityA -> ActivityA: call onPause()
+
+ActivityA -> ActivityA: call onStop()
+
+ActivityA -> ActivityA: call onDestroy()
+deactivate ActivityA
+
+@enduml

@@ -1,0 +1,57 @@
+@startuml
+
+skinparam dip 100
+
+title Single Activity - User navigates away (Home button, switch to another app)
+
+actor User
+
+User -> Activity: App started
+activate Activity
+
+Activity -> Activity: call onCreate(null)
+activate Activity
+deactivate Activity
+
+Activity -> Activity: call onStart()
+activate Activity
+deactivate Activity
+
+Activity -> Activity: call onResume()
+activate Activity
+deactivate Activity
+
+User -> Activity: Press home button
+
+
+Activity -> Activity: call onPause()
+activate Activity
+deactivate Activity
+
+Activity -> Activity: call onStop()
+activate Activity
+deactivate Activity
+
+Activity -> Activity: call onSaveInstanceState()
+activate Activity
+deactivate Activity
+deactivate Activity
+
+
+User -> Activity: App restarted
+activate Activity
+
+Activity -> Activity: call onRestart()
+activate Activity
+deactivate Activity
+
+Activity -> Activity: call onStart()
+activate Activity
+deactivate Activity
+
+Activity -> Activity: call onResume()
+activate Activity
+deactivate Activity
+deactivate Activity
+
+@enduml

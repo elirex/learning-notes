@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.elirex.lifecycle">
+
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity android:name="com.elirex.lifecycle.singleactivity.SingleActivity"
+            android:label="SingleActivity"
+            android:taskAffinity="com.elirex.lifecycle.singleactivity.SingleActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name="com.elirex.lifecycle.singleactivity.SingleActivityWithConfigChange"
+            android:label="SingleActivityWithConfigChanges"
+            android:taskAffinity="com.elirex.lifecycle.singleactivity.SingleActivityWithConfigChange"
+            android:configChanges="orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name="com.elirex.lifecycle.multipleactivities.AActivity"
+            android:label="AActivity"
+            android:taskAffinity="com.elirex.lifecycle.multiplacetivites">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.elirex.lifecycle.multipleactivities.BActivity"
+            android:label="BActivity"
+            android:taskAffinity="com.elirex.lifecycle.multiplacetivites">
+        </activity>
+    </application>
+
+</manifest>
