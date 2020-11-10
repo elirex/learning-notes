@@ -1,7 +1,9 @@
 package com.elrex.leetcode.p19;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.elrex.leetcode.utils.IO;
+import com.elrex.leetcode.utils.ListNode;
+
+import static com.elrex.leetcode.utils.ListNode.linkedListToArray;
 
 /**
  * Problem: 19. Remove Nth Node From End of List
@@ -54,70 +56,35 @@ public class Solution {
 
     public static void main(String[] args) {
        Solution solution = new Solution();
-       ListNode head = generateLinkedList(new int[]{1, 2, 3, 4, 5});
+       ListNode head = ListNode.arrayToLinkedList(new int[]{1, 2, 3, 4, 5});
        int n = 2;
        // Output: [1, 2, 3, 5]
-       System.out.println(linkedListToArray(solution.removeNthFroEnd(head, n)));
+       IO.printArray(linkedListToArray(solution.removeNthFroEnd(head, n)));
 
-       head = generateLinkedList(new int[]{1});
+       head = ListNode.arrayToLinkedList(new int[]{1});
        n = 1;
        // Output: []
-       System.out.println(linkedListToArray(solution.removeNthFroEnd(head, n)));
+       IO.printArray(linkedListToArray(solution.removeNthFroEnd(head, n)));
 
-        head = generateLinkedList(new int[]{1, 2});
+        head = ListNode.arrayToLinkedList(new int[]{1, 2});
         n = 1;
         // Output: [1]
-        System.out.println(linkedListToArray(solution.removeNthFroEnd(head, n)));
+        IO.printArray(linkedListToArray(solution.removeNthFroEnd(head, n)));
 
-        head = generateLinkedList(new int[]{1, 2, 3, 4, 5});
+        head = ListNode.arrayToLinkedList(new int[]{1, 2, 3, 4, 5});
         n = 2;
         // Output: [1, 2, 3, 5]
-        System.out.println(linkedListToArray(solution.removeNthFroEnd2(head, n)));
+        IO.printArray(linkedListToArray(solution.removeNthFroEnd2(head, n)));
 
-        head = generateLinkedList(new int[]{1});
+        head = ListNode.arrayToLinkedList(new int[]{1});
         n = 1;
         // Output: []
-        System.out.println(linkedListToArray(solution.removeNthFroEnd2(head, n)));
+        IO.printArray(linkedListToArray(solution.removeNthFroEnd2(head, n)));
 
-        head = generateLinkedList(new int[]{1, 2});
+        head = ListNode.arrayToLinkedList(new int[]{1, 2});
         n = 1;
         // Output: [1]
-        System.out.println(linkedListToArray(solution.removeNthFroEnd2(head, n)));
-    }
-
-    static List<Integer> linkedListToArray(ListNode head) {
-        List<Integer> list = new ArrayList<>();
-        ListNode current = head;
-        while (current != null) {
-            list.add(current.val);
-            current = current.next;
-        }
-        return list;
-    }
-
-    static ListNode generateLinkedList(int[] arr) {
-        ListNode dummy = new ListNode();
-        ListNode current = dummy;
-        for (int n : arr) {
-            current.next = new ListNode(n);
-            current = current.next;
-        }
-        return dummy.next;
-    }
-
-    static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode() {}
-        ListNode(int val) {
-            this(val ,null);
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
+        IO.printArray(linkedListToArray(solution.removeNthFroEnd2(head, n)));
     }
 
 }

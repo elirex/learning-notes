@@ -1,4 +1,4 @@
-package com.elrex.leetcode;
+package com.elrex.leetcode.p769;
 
 /**
  * Problem: 769. Max Chunks To Make Sorted
