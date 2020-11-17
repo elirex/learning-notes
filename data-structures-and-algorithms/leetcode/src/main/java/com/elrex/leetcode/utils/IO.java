@@ -15,7 +15,7 @@ public class IO {
         System.out.println(Arrays.toString(array));
     }
 
-    private static void printDeepArray(Object[][] array) {
+    public static void printDeepArray(Object[] array) {
         System.out.println(Arrays.deepToString(array));
     }
 

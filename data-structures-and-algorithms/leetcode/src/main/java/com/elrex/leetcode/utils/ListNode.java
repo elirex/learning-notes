@@ -30,6 +30,14 @@ public class ListNode {
         return array;
     }
 
+    public static int[][] linkedListsToArray(ListNode[] lists) {
+        int[][] array = new int[lists.length][];
+        for (int i = 0; i < lists.length; i++) {
+            array[i] = linkedListToArray(lists[i]);
+        }
+        return array;
+    }
+
     private static int getLength(ListNode head) {
         int length = 0;
         ListNode c = head;
