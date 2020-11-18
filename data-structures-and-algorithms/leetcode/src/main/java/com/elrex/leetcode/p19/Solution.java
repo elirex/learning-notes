@@ -59,32 +59,32 @@ public class Solution {
        ListNode head = ListNode.arrayToLinkedList(new int[]{1, 2, 3, 4, 5});
        int n = 2;
        // Output: [1, 2, 3, 5]
-       IO.printArray(linkedListToArray(solution.removeNthFroEnd(head, n)));
+       IO.print(linkedListToArray(solution.removeNthFroEnd(head, n)));
 
        head = ListNode.arrayToLinkedList(new int[]{1});
        n = 1;
        // Output: []
-       IO.printArray(linkedListToArray(solution.removeNthFroEnd(head, n)));
+       IO.print(linkedListToArray(solution.removeNthFroEnd(head, n)));
 
         head = ListNode.arrayToLinkedList(new int[]{1, 2});
         n = 1;
         // Output: [1]
-        IO.printArray(linkedListToArray(solution.removeNthFroEnd(head, n)));
+        IO.print(linkedListToArray(solution.removeNthFroEnd(head, n)));
 
         head = ListNode.arrayToLinkedList(new int[]{1, 2, 3, 4, 5});
         n = 2;
         // Output: [1, 2, 3, 5]
-        IO.printArray(linkedListToArray(solution.removeNthFroEnd2(head, n)));
+        IO.print(linkedListToArray(solution.removeNthFroEnd2(head, n)));
 
         head = ListNode.arrayToLinkedList(new int[]{1});
         n = 1;
         // Output: []
-        IO.printArray(linkedListToArray(solution.removeNthFroEnd2(head, n)));
+        IO.print(linkedListToArray(solution.removeNthFroEnd2(head, n)));
 
         head = ListNode.arrayToLinkedList(new int[]{1, 2});
         n = 1;
         // Output: [1]
-        IO.printArray(linkedListToArray(solution.removeNthFroEnd2(head, n)));
+        IO.print(linkedListToArray(solution.removeNthFroEnd2(head, n)));
     }
 
 }

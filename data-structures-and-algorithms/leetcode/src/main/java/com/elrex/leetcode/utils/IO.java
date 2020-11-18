@@ -11,11 +11,11 @@ public class IO {
         System.out.println(value);
     }
 
-    public static void printArray(int[] array) {
+    public static void print(int[] array) {
         System.out.println(Arrays.toString(array));
     }
 
-    public static void printDeepArray(Object[] array) {
+    public static void print(Object[] array) {
         System.out.println(Arrays.deepToString(array));
     }
 

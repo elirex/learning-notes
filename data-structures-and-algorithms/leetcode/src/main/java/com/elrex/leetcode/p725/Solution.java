@@ -55,11 +55,11 @@ public class Solution {
         ListNode input = ListNode.arrayToLinkedList(new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10});
         int k = 3;
         // Output: [[1, 2, 3, 4], [5, 6, 7], [8, 9, 10]]
-        IO.printDeepArray(ListNode.linkedListsToArray(solution.splitListToParts(input, k)));
+        IO.print(ListNode.linkedListsToArray(solution.splitListToParts(input, k)));
 
         input = ListNode.arrayToLinkedList(new int[] {1, 2, 3});
         k = 5;
         // Output: [[1], [2], [3], [], []]
-        IO.printDeepArray(ListNode.linkedListsToArray(solution.splitListToParts(input, k)));
+        IO.print(ListNode.linkedListsToArray(solution.splitListToParts(input, k)));
     }
 }

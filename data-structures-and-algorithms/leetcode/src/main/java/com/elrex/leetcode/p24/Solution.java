@@ -32,15 +32,15 @@ class Solution {
         Solution solution = new Solution();
         ListNode input = ListNode.arrayToLinkedList(new int[] {1, 2, 3, 4});
         // Output: [2, 1, 4, 3]
-        IO.printArray(ListNode.linkedListToArray(solution.swapPairs(input)));
+        IO.print(ListNode.linkedListToArray(solution.swapPairs(input)));
 
         input = ListNode.arrayToLinkedList(new int[] {});
         // Output: []
-        IO.printArray(ListNode.linkedListToArray(solution.swapPairs(input)));
+        IO.print(ListNode.linkedListToArray(solution.swapPairs(input)));
 
         input = ListNode.arrayToLinkedList(new int[] {1});
         // Output: [1]
-        IO.printArray(ListNode.linkedListToArray(solution.swapPairs(input)));
+        IO.print(ListNode.linkedListToArray(solution.swapPairs(input)));
     }
 
 }

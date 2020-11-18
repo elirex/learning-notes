@@ -91,8 +91,8 @@ public class Solution {
         ListNode l1 = ListNode.arrayToLinkedList(new int[] {7, 2, 4, 3});
         ListNode l2 = ListNode.arrayToLinkedList(new int[] {5, 6, 4});
         // Output: [7, 8, 0, 7]
-        IO.printArray(ListNode.linkedListToArray(solution.addTwoNumbers(l1, l2)));
+        IO.print(ListNode.linkedListToArray(solution.addTwoNumbers(l1, l2)));
 
-        IO.printArray(ListNode.linkedListToArray(solution.addTwoNumbers2(l1, l2)));
+        IO.print(ListNode.linkedListToArray(solution.addTwoNumbers2(l1, l2)));
     }
 }
