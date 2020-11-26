@@ -7,6 +7,10 @@ import java.util.Arrays;
  */
 public class IO {
 
+    public static void print(int value) {
+        System.out.println(value);
+    }
+
     public static void print(boolean value) {
         System.out.println(value);
     }
