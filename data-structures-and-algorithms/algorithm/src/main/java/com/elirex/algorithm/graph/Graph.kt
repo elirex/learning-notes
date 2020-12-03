@@ -7,7 +7,7 @@ import com.elirex.algorithm.Bag
  */
 
 class Graph {
-    private val vertices: Int
+    val vertices: Int
     private var _edges: Int
     private val edges: Int
         get() = _edges
