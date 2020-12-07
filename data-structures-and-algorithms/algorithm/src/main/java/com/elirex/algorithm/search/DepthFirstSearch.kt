@@ -5,7 +5,8 @@ import java.util.*
 
 /**
  * The DepthFirstSearch class represents a data type for determining
- * the vertices connected to a given source vertex s in an undirected graph.
+ * the vertices connected to a given source vertex
+ * in an undirected graph.
  *
  * Time complexity: O(E + V), where
  *  E is the number of edges in the graph
@@ -27,7 +28,7 @@ abstract class DepthFirstSearch {
         get() = _count
 
     /**
-     * Computes the vertices in graph that are connected to the source vertex.
+     * Computes the vertices in a graph that are connected to the source vertex.
      *
      * @param graph
      * @param sourceVertex
@@ -93,6 +94,7 @@ class IterativeDFS : DepthFirstSearch {
         val stack: Stack<Int>  = Stack<Int>()
         marked[sourceVertex] = true
         stack.push(sourceVertex)
+        _count++
         while (stack.isNotEmpty()) {
             val v = stack.peek()
             if (adjacencies[v].hasNext()) {
@@ -100,6 +102,7 @@ class IterativeDFS : DepthFirstSearch {
                 if (!marked[u]) {
                     // Discovered vertex u for the first time.
                     marked[u] = true
+                    _count++
                     stack.push(u)
                 }
             } else {
@@ -110,13 +113,18 @@ class IterativeDFS : DepthFirstSearch {
 }
 
 fun main() {
-    val graph = Graph(10)
+    val graph = Graph(8)
         .addEdge(0, 1)
-        .addEdge(2, 3)
-        .addEdge(4, 5)
+        .addEdge(0, 2)
+        .addEdge(1, 3)
+        .addEdge(2, 1)
+        .addEdge(2, 5)
+        .addEdge(3, 4)
+        .addEdge(3, 5)
+        .addEdge(5, 1)
+        .addEdge(6, 4)
         .addEdge(6, 7)
-        .addEdge(8, 9)
-        .addEdge(9, 0)
+        .addEdge(7, 6)
 
     val recursiveDFS: DepthFirstSearch = RecursiveDFS(graph, 0)
     val iterativeDFS: DepthFirstSearch = IterativeDFS(graph, 0)
