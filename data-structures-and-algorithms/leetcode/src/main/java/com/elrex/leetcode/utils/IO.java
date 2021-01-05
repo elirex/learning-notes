@@ -1,7 +1,6 @@
 package com.elrex.leetcode.utils;
 
 import java.util.Arrays;
-import java.util.List;
 
 /**
  * Created by Wang, Sheng-Yuan (Elirex) on 2020/11/10.
