@@ -13,7 +13,7 @@ import java.util.List;
 public class Solution {
 
     /**
-     * Time complexity: O(N), where N is the length of the input array.
+     * Time complexity: O(N!), where N is the length of the input array.
      * Space complexity: O(N), where N is the length of the input array.
      */
     public List<List<Integer>> permute(int[] nums) {
