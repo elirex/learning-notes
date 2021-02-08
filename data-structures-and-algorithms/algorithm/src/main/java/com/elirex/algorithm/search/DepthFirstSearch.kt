@@ -1,6 +1,6 @@
 package com.elirex.algorithm.search
 
-import com.elirex.algorithm.graph.Graph
+import com.elirex.algorithm.graph.UndirectedGraph
 import java.util.*
 
 /**
@@ -34,7 +34,7 @@ abstract class DepthFirstSearch {
      * @param sourceVertex
      * @throws IllegalArgumentException unless 0 <= the source vertex < vertices
      */
-    constructor(graph: Graph, sourceVertex: Int) {
+    constructor(graph: UndirectedGraph, sourceVertex: Int) {
         marked = Array(graph.vertices) { false }
         validateVertex(sourceVertex)
         dfs(graph, sourceVertex)
@@ -53,7 +53,7 @@ abstract class DepthFirstSearch {
     }
 
     // Depth first search from the source vertex
-    protected abstract fun dfs(graph: Graph, sourceVertex: Int)
+    protected abstract fun dfs(graph: UndirectedGraph, sourceVertex: Int)
 
 
     // Throw an IllegalArgumentException unless 0 <= vertex < vertices.
@@ -67,9 +67,9 @@ abstract class DepthFirstSearch {
 
 class RecursiveDFS : DepthFirstSearch {
 
-    constructor(graph: Graph, sourceVertex: Int) : super(graph, sourceVertex)
+    constructor(graph: UndirectedGraph, sourceVertex: Int) : super(graph, sourceVertex)
 
-    override fun dfs(graph: Graph, sourceVertex: Int) {
+    override fun dfs(graph: UndirectedGraph, sourceVertex: Int) {
         _count++
         marked[sourceVertex] = true
         for (u in graph.getAdjacencyByVertex(sourceVertex)) {
@@ -80,9 +80,9 @@ class RecursiveDFS : DepthFirstSearch {
 
 class IterativeDFS : DepthFirstSearch {
 
-    constructor(graph: Graph, sourceVertex: Int) : super(graph, sourceVertex)
+    constructor(graph: UndirectedGraph, sourceVertex: Int) : super(graph, sourceVertex)
 
-    override fun dfs(graph: Graph, sourceVertex: Int) {
+    override fun dfs(graph: UndirectedGraph, sourceVertex: Int) {
         // To be able to iterate over each adjacency list,
         // keeping track of which vertex in each adjacency list needs
         // to be explored next.
@@ -113,7 +113,7 @@ class IterativeDFS : DepthFirstSearch {
 }
 
 fun main() {
-    val graph = Graph(8)
+    val graph = UndirectedGraph(8)
         .addEdge(0, 1)
         .addEdge(0, 2)
         .addEdge(1, 3)
@@ -134,7 +134,7 @@ fun main() {
 
 }
 
-private fun search(dfs: DepthFirstSearch, graph: Graph) {
+private fun search(dfs: DepthFirstSearch, graph: UndirectedGraph) {
     for (v in 0 until graph.vertices) {
         if (dfs.marked(v)) print("$v ")
     }

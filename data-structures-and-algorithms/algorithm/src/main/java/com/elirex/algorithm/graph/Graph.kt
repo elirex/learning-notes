@@ -3,15 +3,16 @@ package com.elirex.algorithm.graph
 import com.elirex.algorithm.Bag
 
 /**
- * Created by Wang, Sheng-Yuan (Elirex) on 2020/12/1.
+ * Created by Wang, Sheng-Yuan (Elirex) on 2021/1/31.
  */
+abstract class Graph {
 
-class Graph {
     val vertices: Int
-    private var _edges: Int
-    private val edges: Int
+
+    val edges: Int
         get() = _edges
-    private var adjacencyLists: Array<Bag<Int>>
+    protected var _edges: Int
+    protected var adjacencyList: Array<Bag<Int>>
 
 
     /**
@@ -24,8 +25,17 @@ class Graph {
         this.vertices = vertices
         verifyVertices()
         _edges = 0
-        adjacencyLists = Array(vertices) { Bag<Int>() }
+        adjacencyList = Array(vertices) { Bag<Int>() }
     }
+
+    /**
+     * Returns the degree of vertex.
+     *
+     * @param vertex
+     * @return the degree of vertex
+     * @throws IllegalArgumentException unless 0 <= vertex < vertices
+     */
+    abstract fun degree(vertex: Int): Int
 
     /**
      * Adds the undirected edge v - u to this graph.
@@ -34,12 +44,9 @@ class Graph {
      * @param u other vertex in the edge
      * @throws IllegalArgumentException unless both 0 <= v < vertices and 0 <= u < vertices
      */
-    fun addEdge(v: Int, u: Int): Graph = apply {
+    open fun addEdge(v: Int, u: Int): Graph = apply {
         validateVertex(v)
         validateVertex(u)
-        _edges++
-        adjacencyLists[v].add(u)
-        adjacencyLists[u].add(v)
     }
 
     /**
@@ -51,55 +58,33 @@ class Graph {
      */
     fun getAdjacencyByVertex(vertex: Int): Iterable<Int> {
         validateVertex(vertex)
-        return adjacencyLists[vertex]
+        return adjacencyList[vertex]
     }
 
-    /**
-     * Returns the degree of vertex.
-     *
-     * @param vertex
-     * @return the degree of vertex
-     * @throws IllegalArgumentException unless 0 <= vertex < vertices
-     */
-    fun degree(vertex: Int): Int {
-        validateVertex(vertex)
-        return adjacencyLists[vertex].size
-    }
 
-    override fun toString(): String {
-        return StringBuilder().apply {
-            append("$vertices vertices, $edges edges")
-            append("\n")
-            for (v in 0 until vertices) {
-                append("$v: ")
-                for (u in adjacencyLists[v]) {
-                    append("$u ")
-                }
-                append("\n")
-            }
-        }.toString()
-    }
-
-    private fun validateVertex(vertex: Int) {
+    protected fun validateVertex(vertex: Int) {
         if (vertex < 0 || vertex >= vertices) {
             throw IllegalArgumentException("The vertex($vertex) is not between 0 and ${vertices - 1}")
         }
     }
 
+
     private fun verifyVertices() {
-        if (vertices < 0) {
-            throw IllegalArgumentException("The number of vertices must be positive")
-        }
+       if (vertices < 0) throw IllegalArgumentException("The number of vertices must bu positive")
+    }
+
+    override fun toString(): String {
+        return StringBuilder().apply {
+            append("$vertices vertices, $edges edges")
+            append('\n')
+            for (v in 0 until vertices) {
+                append("$v: ")
+                for (u in adjacencyList[v]) {
+                    append("$u ")
+                }
+                append('\n')
+            }
+        }.toString()
     }
 
 }
-
-fun main(args: Array<String>) {
-    val graph = Graph(10)
-        .addEdge(0, 1)
-        .addEdge(2, 5)
-        .addEdge(9, 1)
-    println(graph)
-    println(graph.degree(1))
-}
-

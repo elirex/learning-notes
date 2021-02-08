@@ -1,7 +1,6 @@
 package com.elirex.algorithm.search
 
-import com.elirex.algorithm.graph.Graph
-import java.util.*
+import com.elirex.algorithm.graph.UndirectedGraph
 import kotlin.collections.ArrayDeque
 
 /**
@@ -36,7 +35,7 @@ class BreadthFirstSearch {
      *  @throws IllegalArgumentException unless 0 <= the source vertex < vertices
      */
     @ExperimentalStdlibApi
-    constructor(graph: Graph, sourceVertex: Int) {
+    constructor(graph: UndirectedGraph, sourceVertex: Int) {
         marked = Array(graph.vertices) { false }
         validateVertex(sourceVertex)
         bfs(graph, sourceVertex)
@@ -54,7 +53,7 @@ class BreadthFirstSearch {
     }
 
     @ExperimentalStdlibApi
-    private fun bfs(graph: Graph, sourceVertex: Int) {
+    private fun bfs(graph: UndirectedGraph, sourceVertex: Int) {
         val adjacencies: Array<Iterator<Int>> = Array(graph.vertices) { vertex ->
             graph.getAdjacencyByVertex(vertex).iterator()
         }
@@ -86,7 +85,7 @@ class BreadthFirstSearch {
 
 @ExperimentalStdlibApi
 fun main() {
-    val graph = Graph(8)
+    val graph = UndirectedGraph(8)
         .addEdge(0, 1)
         .addEdge(0, 2)
         .addEdge(1, 3)
@@ -103,7 +102,7 @@ fun main() {
     search(bfs, graph)
 }
 
-private fun search(bfs: BreadthFirstSearch, graph: Graph) {
+private fun search(bfs: BreadthFirstSearch, graph: UndirectedGraph) {
     for (v in 0 until graph.vertices) {
         if (bfs.marked(v)) print("$v ")
     }
